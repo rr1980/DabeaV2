@@ -29,7 +29,10 @@ namespace DabeaV2.Web.Middleware.ExceptionHandling
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Something went wrong: {JsonConvert.SerializeObject(ex, Formatting.Indented)}");
+                var errJsonString = JsonConvert.SerializeObject(ex, Formatting.Indented).Replace(@"\r\n", Environment.NewLine);
+
+                _logger.LogError($"{ex.Message.Trim()}: {errJsonString}");
+
                 await HandleExceptionAsync(httpContext, ex);
             }
         }
