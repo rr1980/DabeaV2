@@ -26,6 +26,9 @@ namespace DabeaV2.Services
 
         public async Task<Test1ResponseViewvModel> Test1()
         {
+            throw new Exception("TEST!");
+
+
             //var transaction = _testDataService.BeginTransaction();
             Test1ResponseViewvModel result = null;
             using (var transaction = _repository.BeginTransaction())
@@ -47,7 +50,6 @@ namespace DabeaV2.Services
                     await _repository.Add(kontakt);
 
 
-                    //throw new Exception("TEST!");
 
                     transaction.Commit();
 

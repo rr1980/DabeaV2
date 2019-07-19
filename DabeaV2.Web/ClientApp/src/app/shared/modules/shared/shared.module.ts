@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
-import { AuthInternGuard } from '../../guards/auth-intern.guard';
-import { AuthExternGuard } from '../../guards/auth-extern.guard';
+import { AuthInternGuard } from '../../helper/auth-intern.guard';
+import { AuthExternGuard } from '../../helper/auth-extern.guard';
 
 @NgModule({
   imports: [

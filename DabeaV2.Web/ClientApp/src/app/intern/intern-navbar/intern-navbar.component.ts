@@ -27,6 +27,7 @@ export class InternNavbarComponent implements OnInit {
   }
 
   onClickTest() {
+    //throw new Error("Na Nö");
     this.http.post<ITest>(this.baseUrl + 'api/Test/Test1', { }).subscribe(response => {
       console.debug("Response:", response);
     });
