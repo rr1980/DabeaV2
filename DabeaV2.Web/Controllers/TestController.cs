@@ -2,10 +2,24 @@
 using DabeaV2.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace DabeaV2.Web.Controllers
 {
+    public class DabeaV2ControllerException : Exception
+    {
+        public DabeaV2ControllerException(string message) : base(message)
+        {
+
+        }
+
+        public DabeaV2ControllerException(string message, Exception ex) : base("ControllerException: " + message, ex)
+        {
+
+        }
+    }
+
     [Authorize]
     [Route("api/[controller]")]
     public class TestController : Controller
@@ -20,7 +34,14 @@ namespace DabeaV2.Web.Controllers
         [HttpPost("Test1")]
         public async Task<Test1ResponseViewvModel> Test1()
         {
-            return await _testService.Test1();
+            try
+            {
+                return await _testService.Test1();
+            }
+            catch (Exception ex)
+            {
+                throw new DabeaV2ControllerException("Serverfehler", ex);
+            }
         }
     }
 }

@@ -1,0 +1,553 @@
+2019-07-20 00:41:39.529 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: DabeaV2.Web.Controllers.DabeaV2ControllerException: ControllerException: Serverfehler ---> DabeaV2.Services.DabeaV2ServicesException: ServicesException: Test1 fehlgeschlagen! ---> DabeaV2.Repositories.DabeaV2RepositoryException: RepositoryException: Entity konnte nicht hinzugefügt werden! ---> System.ArgumentNullException: Value cannot be null.
+Parameter name: entity
+   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\Projects\DabeaV2\DabeaV2.Repositories\Repository.cs:line 63
+   --- End of inner exception stack trace ---
+   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\Projects\DabeaV2\DabeaV2.Repositories\Repository.cs:line 71
+   at DabeaV2.Services.TestService.Test1() in D:\Projects\DabeaV2\DabeaV2.Services\TestService.cs:line 52
+   --- End of inner exception stack trace ---
+   at DabeaV2.Services.TestService.Test1() in D:\Projects\DabeaV2\DabeaV2.Services\TestService.cs:line 75
+   at DabeaV2.Web.Controllers.TestController.Test1() in D:\Projects\DabeaV2\DabeaV2.Web\Controllers\TestController.cs:line 39
+   --- End of inner exception stack trace ---
+   at DabeaV2.Web.Controllers.TestController.Test1() in D:\Projects\DabeaV2\DabeaV2.Web\Controllers\TestController.cs:line 43
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\Projects\DabeaV2\DabeaV2.Web\Middleware\ExceptionHandling\ExceptionMiddleware.cs:line 27
+
+2019-07-20 00:46:41.687 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {"StackTrace":"   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28","Message":"ControllerException: Serverfehler","Data":{},"InnerException":{"StackTrace":"   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39","Message":"ServicesException: Test1 fehlgeschlagen!","Data":{},"InnerException":{"StackTrace":"   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52","Message":"RepositoryException: Entity konnte nicht hinzugefügt werden!","Data":{},"InnerException":{"ClassName":"System.ArgumentNullException","Message":"Value cannot be null.","Data":null,"InnerException":null,"HelpURL":null,"StackTraceString":"   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63","RemoteStackTraceString":null,"RemoteStackIndex":0,"ExceptionMethod":null,"HResult":-2147467261,"Source":"DabeaV2.Repositories","WatsonBuckets":null,"ParamName":"entity"},"HelpLink":null,"Source":"DabeaV2.Repositories","HResult":-2146233088},"HelpLink":null,"Source":"DabeaV2.Services","HResult":-2146233088},"HelpLink":null,"Source":"DabeaV2.Web","HResult":-2146233088}
+
+2019-07-20 00:49:27.302 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 00:57:00.978 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 00:57:56.124 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 01:02:27.723 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 01:06:18.667 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 01:08:22.498 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 01:10:23.617 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 01:14:03.992 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 01:16:51.089 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 01:19:29.675 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 01:24:13.759 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 01:26:35.081 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-20 01:28:40.765 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Something went wrong: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 43\r\n   at lambda_method(Closure , Object )\r\n   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)\r\n   at System.Threading.Tasks.ValueTask`1.get_Result()\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)\r\n   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)\r\n   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)\r\n   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 75\r\n   at DabeaV2.Web.Controllers.TestController.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Web\\Controllers\\TestController.cs:line 39",
+    "Message": "ServicesException: Test1 fehlgeschlagen!",
+    "Data": {},
+    "InnerException": {
+      "StackTrace": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 71\r\n   at DabeaV2.Services.TestService.Test1() in D:\\Projects\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 52",
+      "Message": "RepositoryException: Entity konnte nicht hinzugefügt werden!",
+      "Data": {},
+      "InnerException": {
+        "ClassName": "System.ArgumentNullException",
+        "Message": "Value cannot be null.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": "   at DabeaV2.Repositories.Repository.Add[T](T entity) in D:\\Projects\\DabeaV2\\DabeaV2.Repositories\\Repository.cs:line 63",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467261,
+        "Source": "DabeaV2.Repositories",
+        "WatsonBuckets": null,
+        "ParamName": "entity"
+      },
+      "HelpLink": null,
+      "Source": "DabeaV2.Repositories",
+      "HResult": -2146233088
+    },
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+

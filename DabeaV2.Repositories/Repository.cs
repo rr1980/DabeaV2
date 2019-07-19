@@ -53,23 +53,47 @@ namespace DabeaV2.Repositories
 
         public Task Add<T>(T entity) where T : BaseEntity
         {
-            _logger.LogTrace("Add Entity", entity.GetType().Name);
-            AddModification(entity, EntityModificationType.Added);
+            try
+            {
+                if (entity == null)
+                {
+                    throw new ArgumentNullException("entity");
+                }
 
-            _dbContext.Add<T>(entity);
-            return _dbContext.SaveChangesAsync();
+                _logger.LogTrace("Add Entity", entity.GetType().Name);
+                AddModification(entity, EntityModificationType.Added);
+
+                _dbContext.Add<T>(entity);
+                return _dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new DabeaV2RepositoryException($"Entity konnte nicht hinzugefügt werden!", ex);
+            }
         }
 
         public Task Update<T>(T entity, bool updateModified = true) where T : BaseEntity
         {
-            _logger.LogTrace("Update Entity", entity.GetType().Name);
-            if (updateModified)
+            try
             {
-                AddModification(entity, EntityModificationType.Updated);
-            }
+                if (entity == null)
+                {
+                    throw new ArgumentNullException("entity");
+                }
 
-            _dbContext.Update(entity);
-            return _dbContext.SaveChangesAsync();
+                _logger.LogTrace("Update Entity", entity.GetType().Name);
+                if (updateModified)
+                {
+                    AddModification(entity, EntityModificationType.Updated);
+                }
+
+                _dbContext.Update(entity);
+                return _dbContext.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new DabeaV2RepositoryException($"Entity konnte nicht upgedated werden!", ex);
+            }
         }
 
         public Task RemoveActive<T>(T entity, bool updateModified = true) where T : BaseEntity

@@ -26,51 +26,54 @@ namespace DabeaV2.Services
 
         public async Task<Test1ResponseViewvModel> Test1()
         {
-            throw new Exception("TEST!");
-
-
-            //var transaction = _testDataService.BeginTransaction();
-            Test1ResponseViewvModel result = null;
-            using (var transaction = _repository.BeginTransaction())
+            try
             {
-                try
+
+
+                //var transaction = _testDataService.BeginTransaction();
+                Test1ResponseViewvModel result = null;
+                using (var transaction = _repository.BeginTransaction())
                 {
-                    var benutzer =  _repository.GetAll<Benutzer>().FirstOrDefault();
-
-                    //benutzer.Person.Name += benutzer.Person.Name;
-
-                    var kontakt = new Kontakt
+                    try
                     {
-                        Person = benutzer.Person,
-                        IsActive = true,
-                        Telefon = "1980",
-                        Email = "ABC@ABC.ABC"
-                    };
+                        var benutzer = _repository.GetAll<Benutzer>().FirstOrDefault();
 
-                    await _repository.Add(kontakt);
+                        //benutzer.Person.Name += benutzer.Person.Name;
+
+                        var kontakt = new Kontakt
+                        {
+                            Person = benutzer.Person,
+                            IsActive = true,
+                            Telefon = "1980",
+                            Email = "ABC@ABC.ABC"
+                        };
+
+                        //await _repository.Add(kontakt);
+                        await _repository.Add<Kontakt>(null);
 
 
 
-                    transaction.Commit();
+                        transaction.Commit();
 
-                    result = new Test1ResponseViewvModel
+                        result = new Test1ResponseViewvModel
+                        {
+                            Name = benutzer.Person.Name
+                        };
+                    }
+                    catch (Exception ex)
                     {
-                        Name = benutzer.Person.Name
-                    };
+                        transaction.Rollback();
+                        throw;
+                    }
                 }
-                catch (Exception ex)
-                {
-                    _logger.LogError(ex, "Test1 failed!");
-                    transaction.Rollback();
-                }
-                finally
-                {
-                    _logger.LogError("finally...");
-                    //transaction.Dispose();
-                }
+
+                return result;
+
             }
-
-            return result;
+            catch (Exception ex)
+            {
+                throw new DabeaV2ServicesException("Test1 fehlgeschlagen!", ex);
+            }
         }
         public async Task<Test1ResponseViewvModel> Test2()
         {

@@ -1,6 +1,7 @@
 ﻿using DabeaV2.Logger.Internal;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -55,7 +56,7 @@ namespace DabeaV2.Logger
                 {
                     foreach (var item in group)
                     {
-                        await streamWriter.WriteAsync(item.Message);
+                        await streamWriter.WriteAsync(item.Message + Environment.NewLine);
                     }
                 }
             }
