@@ -1,0 +1,22 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to Extern!
+  </h1>
+</div>
+<ul>
+  <li>
+    <a [routerLinkActive]="['active']" [routerLink]="['/intern']">
+      Intern
+    </a>
+  </li>
+  <li>
+    <a [routerLinkActive]="['active']" [routerLink]="['/extern']">
+      Extern
+    </a>
+  </li>
+  <li>
+    <button (click)="onClickLogout()">
+      Logout
+    </button>
+  </li>
+</ul>

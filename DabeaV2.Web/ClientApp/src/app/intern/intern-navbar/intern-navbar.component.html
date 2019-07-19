@@ -1,0 +1,52 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to Intern!
+  </h1>
+</div>
+<ul>
+  <li>
+    <a [routerLinkActive]="['active']" [routerLink]="['/intern']">
+      Intern
+    </a>
+  </li>
+  <li>
+    <a [routerLinkActive]="['active']" [routerLink]="['/extern']">
+      Extern
+    </a>
+  </li>
+  <li>
+    <button class="btn btn-primary" (click)="onClickLogout()">
+      Logout
+    </button>
+  </li>
+  <li>
+    <button class="btn btn-primary" (click)="onClickTest()">
+      Test
+    </button>
+  </li>
+</ul>
+
+<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    Brand
+  </a>
+
+  <button class="navbar-toggler" type="button"
+          (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse"
+       [ngClass]="{ 'show': navbarOpen }">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Item 1</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Item 2</a>
+      </li>
+    </ul>
+  </div>
+</nav>-->
