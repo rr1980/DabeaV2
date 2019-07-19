@@ -34,9 +34,17 @@ namespace DabeaV2.Services
                 {
                     var benutzer =  _repository.GetAll<Benutzer>().FirstOrDefault();
 
-                    benutzer.Person.Name += benutzer.Person.Name;
+                    //benutzer.Person.Name += benutzer.Person.Name;
 
-                    await _repository.Update(benutzer.Person);
+                    var kontakt = new Kontakt
+                    {
+                        Person = benutzer.Person,
+                        IsActive = true,
+                        Telefon = "1980",
+                        Email = "ABC@ABC.ABC"
+                    };
+
+                    await _repository.Add(kontakt);
 
 
                     //throw new Exception("TEST!");

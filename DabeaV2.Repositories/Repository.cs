@@ -105,16 +105,28 @@ namespace DabeaV2.Repositories
                     Benutzer = GetCurrentBenutzer().Result
                 };
 
-                foreach (var item in _dbContext.Entry(e).Properties)
+                if (modificationType == EntityModificationType.Added)
                 {
-                    if (item.IsModified)
+                    modification.ModificationItems.Add(new ModificationItem
                     {
-                        modification.ModificationItems.Add(new ModificationItem
+                        PropertyName = "Added"
+                    });
+                }
+                else if (modificationType == EntityModificationType.Updated || modificationType == EntityModificationType.Activation)
+                {
+                    var entry = _dbContext.Entry(e);
+
+                    foreach (var item in entry.Properties)
+                    {
+                        if (item.IsModified)
                         {
-                            PropertyName = item.Metadata.Name,
-                            OldValue = item.OriginalValue.ToString(),
-                            NewValue = item.CurrentValue.ToString()
-                        });
+                            modification.ModificationItems.Add(new ModificationItem
+                            {
+                                PropertyName = item.Metadata.Name,
+                                OldValue = item.OriginalValue.ToString(),
+                                NewValue = item.CurrentValue.ToString()
+                            });
+                        }
                     }
                 }
 
