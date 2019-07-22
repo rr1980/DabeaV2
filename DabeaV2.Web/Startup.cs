@@ -17,6 +17,7 @@ using DabeaV2.DB;
 using DabeaV2.Services.Interfaces;
 using DabeaV2.Services;
 using DabeaV2.Web.Middleware.ExceptionHandling;
+using System.Runtime.Serialization;
 
 namespace DabeaV2.Web
 {
@@ -55,6 +56,7 @@ namespace DabeaV2.Web
 
             //services.AddScoped<ITestDataService, TestDataService>();
             services.AddScoped<ITestService, TestService>();
+            services.AddScoped<INamedComponentService, NamedComponentService>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                        .AddJwtBearer(jwtBearerOptions =>
