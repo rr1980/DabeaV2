@@ -53,6 +53,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\intern\intern-traeger\intern-traeger-edit\intern-he\intern-he-edit\intern-he-edit-routing.module.ts" />
+    <None Remove="ClientApp\src\app\intern\intern-traeger\intern-traeger-edit\intern-he\intern-he-routing.module.ts" />
     <None Remove="ClientApp\src\app\intern\intern-traeger\intern-traeger-edit\intern-traeger-edit-routing.module.ts" />
     <None Remove="ClientApp\src\app\intern\intern-traeger\intern-traeger-edit\intern-traeger-edit.component.ts" />
     <None Remove="ClientApp\src\app\intern\intern-traeger\intern-traeger-edit\intern-traeger-edit.module.ts" />

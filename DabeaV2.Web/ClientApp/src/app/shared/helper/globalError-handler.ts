@@ -11,7 +11,7 @@ export class GlobalErrorHandler implements ErrorHandler {
     };
 
     // Log  the error
-    console.log("++",err);
+    console.error(error);
 
         // Optionally send it to your back-end API
         // Notify the user

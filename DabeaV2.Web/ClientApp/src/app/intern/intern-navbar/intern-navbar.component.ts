@@ -3,11 +3,6 @@ import { AuthService } from '../../shared/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Router, NavigationError, NavigationEnd, NavigationStart } from '@angular/router';
 
-
-interface ITest {
-
-}
-
 @Component({
   selector: 'cz-intern-navbar',
   templateUrl: './intern-navbar.component.html',
@@ -46,17 +41,4 @@ export class InternNavbarComponent implements OnInit {
   onClickLogout() {
     this.authService.logout();
   }
-
-  onClickTest() {
-    //throw new Error("Na Nö");
-
-    this.http.post<ITest>(this.baseUrl + 'api/Test/Test1', { }).subscribe(response => {
-      console.log("Response:", response);
-    });
-  }
-
-  OnClickTest() {
-    this.loading = !this.loading;
-  }
-
 }
