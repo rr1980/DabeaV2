@@ -20,7 +20,7 @@ export class NameService {
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   getPerson(id: number): Observable<IComponentModel<INamePersonComponentModel>> {
-    var request = { id: id, entityType: EntityType.Person } as IComponentModel<INamePersonComponentModel>;
+    var request = { id, entityType: EntityType.Person } as IComponentModel<INamePersonComponentModel>;
     return this.http.post<IComponentModel<INamePersonComponentModel>>(this.baseUrl + 'api/NameComponent/Get_Person', request);
   }
 
