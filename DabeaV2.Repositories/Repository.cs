@@ -31,24 +31,27 @@ namespace DabeaV2.Repositories
             return _dbContext.Database.BeginTransaction();
         }
 
-        public Task<T> Get<T>(Expression<Func<T, bool>> parameter) where T : BaseEntity
+        public Task<T> Get<T>(Expression<Func<T, bool>> parameter, EntityActiveState antityActiveState = EntityActiveState.Active) where T : BaseEntity
         {
-            return _dbContext.Set<T>().FirstOrDefaultAsync(parameter);
+            return GetAll<T>(antityActiveState).FirstOrDefaultAsync(parameter);
         }
 
-        public Task<T> GetActive<T>(Expression<Func<T, bool>> parameter) where T : BaseEntity
+        public IQueryable<T> GetAll<T>(EntityActiveState antityActiveState = EntityActiveState.Active) where T : BaseEntity
         {
-            return GetAll<T>().Where(x => x.IsActive).FirstOrDefaultAsync(parameter);
-        }
+            if (antityActiveState == EntityActiveState.Active)
+            {
+                return _dbContext.Set<T>().Where(x => x.IsActive);
+            }
+            else if (antityActiveState == EntityActiveState.NotActive)
+            {
+                return _dbContext.Set<T>().Where(x => !x.IsActive);
+            }
+            else if (antityActiveState == EntityActiveState.All)
+            {
+                return _dbContext.Set<T>();
+            }
 
-        public IQueryable<T> GetAll<T>() where T : BaseEntity
-        {
-            return _dbContext.Set<T>().AsQueryable();
-        }
-
-        public IQueryable<T> GetAllActive<T>() where T : BaseEntity
-        {
-            return GetAll<T>().Where(x => x.IsActive);
+            return null;
         }
 
         public Task Add<T>(T entity) where T : BaseEntity

@@ -4,6 +4,13 @@ using System.Text;
 
 namespace DabeaV2.Common.Enums
 {
+    public enum EntityActiveState
+    {
+        Active,
+        NotActive,
+        All
+    }
+
     public enum EntityModificationType
     {
         Activation,

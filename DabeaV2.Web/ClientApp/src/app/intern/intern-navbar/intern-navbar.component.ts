@@ -3,25 +3,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 
 
-interface IComponentViewModel<T> {
-  id?: number;
-  entityType: number,
-  result: T
-}
-
-interface IBaseComponentViewModel {
-  id?: number;
-  isActive: boolean;
-}
-
-interface INameComponentViewModel extends IBaseComponentViewModel {
-  name: string;
-  vorName: string;
-  fullName: string;
-
-}
-
-interface ITest {
+interface ITest { 
 
 }
 
@@ -52,10 +34,5 @@ export class InternNavbarComponent implements OnInit {
     });
   }
 
-  onClickTest1() {
-    //throw new Error("Na Nö");
-    this.http.post<IComponentViewModel<INameComponentViewModel>>(this.baseUrl + 'api/NameComponent/Get', { id : 1, entityType : 1 } as IComponentViewModel<INameComponentViewModel>).subscribe(response => {
-      console.debug("Response:", response);
-    });
-  }
+
 }

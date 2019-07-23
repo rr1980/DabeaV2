@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DabeaV2.DB.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190719171839_Init")]
+    [Migration("20190723075537_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

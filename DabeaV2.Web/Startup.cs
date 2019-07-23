@@ -18,6 +18,7 @@ using DabeaV2.Services.Interfaces;
 using DabeaV2.Services;
 using DabeaV2.Web.Middleware.ExceptionHandling;
 using System.Runtime.Serialization;
+using DabeaV2.Services.Components;
 
 namespace DabeaV2.Web
 {

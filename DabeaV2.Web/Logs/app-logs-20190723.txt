@@ -1,0 +1,46 @@
+2019-07-23 10:41:37.256 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Failed to proxy the request to http://localhost:4200/sockjs-node/513/v33djc2m/xhr_streaming?t=1563871293040, because the request to the proxy target failed. Check that the proxy target server is running and accepting requests to http://localhost:4200/.
+
+The underlying exception message was 'Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte.'.Check the InnerException for more details.: {
+  "StackTrace": "   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projekte\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "Failed to proxy the request to http://localhost:4200/sockjs-node/513/v33djc2m/xhr_streaming?t=1563871293040, because the request to the proxy target failed. Check that the proxy target server is running and accepting requests to http://localhost:4200/.\n\nThe underlying exception message was 'Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte.'.Check the InnerException for more details.",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.ConnectAsync(HttpRequestMessage request, Boolean allowHttp2, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.CreateHttp11ConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.GetHttpConnectionAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpConnectionPool.SendWithRetryAsync(HttpRequestMessage request, Boolean doRequestAuth, CancellationToken cancellationToken)
+   at System.Net.Http.DiagnosticsHandler.SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+   at System.Net.Http.HttpClient.FinishSendAsyncUnbuffered(Task`1 sendTask, HttpRequestMessage request, CancellationTokenSource cts, Boolean disposeCts)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)",
+    "Message": "Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte.",
+    "Data": {},
+    "InnerException": {
+      "ClassName": "System.Net.Sockets.SocketException",
+      "Message": "Es konnte keine Verbindung hergestellt werden, da der Zielcomputer die Verbindung verweigerte.",
+      "Data": null,
+      "InnerException": null,
+      "HelpURL": null,
+      "StackTraceString": "   at System.Net.Http.ConnectHelper.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)",
+      "RemoteStackTraceString": null,
+      "RemoteStackIndex": 0,
+      "ExceptionMethod": null,
+      "HResult": -2147467259,
+      "Source": "System.Private.CoreLib",
+      "WatsonBuckets": null,
+      "NativeErrorCode": 10061
+    },
+    "HelpLink": null,
+    "Source": "System.Net.Http",
+    "HResult": -2147467259
+  },
+  "HelpLink": null,
+  "Source": "Microsoft.AspNetCore.SpaServices.Extensions",
+  "HResult": -2147467259
+}
+

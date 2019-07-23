@@ -28,7 +28,7 @@ namespace DabeaV2.Services.Components
 
         protected async Task<ComponentViewModel<TComponentViewModel>> BuildResult<T>(ComponentViewModel<NameComponentViewModel> request, Func<T, TComponentViewModel> componentViewModelMapperFunc) where T :BaseEntity
         {
-            var entity = await _repository.GetActive<T>(x => x.Id == request.Id);
+            var entity = await _repository.Get<T>(x => x.Id == request.Id);
 
             if(entity == null)
             {

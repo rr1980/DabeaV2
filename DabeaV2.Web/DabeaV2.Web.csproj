@@ -58,6 +58,7 @@
 
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\shared\models\" />
     <Folder Include="Logs\" />
   </ItemGroup>
 
