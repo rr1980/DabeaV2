@@ -11,7 +11,6 @@ export class AuthExternGuard implements CanActivate, CanLoad {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const currentUser = this.authService.currentUserValue;
-    console.debug("extern canActivate isExtern", currentUser.isExtern);
 
     if (currentUser && currentUser.isExtern) {
       return true;
@@ -24,7 +23,6 @@ export class AuthExternGuard implements CanActivate, CanLoad {
 
   canLoad(route: Route, segments: UrlSegment[]): Observable<boolean>|Promise<boolean>|boolean {
     const currentUser = this.authService.currentUserValue;
-    console.debug("extern canLoad isExtern", currentUser.isExtern);
 
     if (currentUser && currentUser.isExtern) {
       return true;

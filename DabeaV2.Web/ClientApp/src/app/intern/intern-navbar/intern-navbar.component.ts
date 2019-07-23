@@ -3,7 +3,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 
 
-interface ITest { 
+interface ITest {
 
 }
 
@@ -29,8 +29,9 @@ export class InternNavbarComponent implements OnInit {
 
   onClickTest() {
     //throw new Error("Na Nö");
+
     this.http.post<ITest>(this.baseUrl + 'api/Test/Test1', { }).subscribe(response => {
-      console.debug("Response:", response);
+      console.log("Response:", response);
     });
   }
 

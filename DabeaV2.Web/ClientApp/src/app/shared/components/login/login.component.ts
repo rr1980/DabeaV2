@@ -35,7 +35,6 @@ export class LoginComponent implements OnInit {
     });
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-    console.debug(this.returnUrl);
   }
 
   get f() { return this.loginForm.controls; }
@@ -52,8 +51,6 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          console.debug("==", data);
-
           if (this.returnUrl && this.returnUrl.length > 1) {
             this.router.navigate([this.returnUrl]);
           }

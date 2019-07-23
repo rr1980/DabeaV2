@@ -30,10 +30,8 @@ export class NameComponent implements OnInit {
   load() {
     var request = { id: this.id, entityType: this.entityType } as IComponentModel<INameComponentModel>;
 
-    console.debug("request", request);
-
     this.http.post<IComponentModel<INameComponentModel>>(this.baseUrl + 'api/NameComponent/Get', request).subscribe(response => {
-      console.debug("Response:", response);
+      console.log("Response:", response);
     });
   }
 }
