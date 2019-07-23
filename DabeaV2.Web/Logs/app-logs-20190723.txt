@@ -649,3 +649,144 @@ CREATE TABLE [Modifications] (
     CONSTRAINT [FK_Modifications_Traeger_ChangedTraegerId] FOREIGN KEY ([ChangedTraegerId]) REFERENCES [Traeger] ([Id]) ON DELETE CASCADE
 );
 
+2019-07-23 15:28:26.439 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: One or more errors occurred. (The remote party closed the WebSocket connection without completing the close handshake.): {
+  "ClassName": "System.AggregateException",
+  "Message": "One or more errors occurred.",
+  "Data": null,
+  "InnerException": {
+    "ClassName": "System.Net.WebSockets.WebSocketException",
+    "Message": "The remote party closed the WebSocket connection without completing the close handshake.",
+    "Data": null,
+    "InnerException": {
+      "ClassName": "System.IO.IOException",
+      "Message": "Unable to read data from the transport connection: Eine vorhandene Verbindung wurde vom Remotehost geschlossen..",
+      "Data": null,
+      "InnerException": {
+        "ClassName": "System.Net.Sockets.SocketException",
+        "Message": "Eine vorhandene Verbindung wurde vom Remotehost geschlossen.",
+        "Data": null,
+        "InnerException": null,
+        "HelpURL": null,
+        "StackTraceString": null,
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2147467259,
+        "Source": null,
+        "WatsonBuckets": null,
+        "NativeErrorCode": 10054
+      },
+      "HelpURL": null,
+      "StackTraceString": "   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.ReadBufferedAsyncCore(Memory`1 destination)
+   at System.Net.Http.HttpConnection.RawConnectionStream.ReadAsync(Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken, Boolean throwOnPrematureClosure)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TWebSocketReceiveResultGetter,TWebSocketReceiveResult](Memory`1 payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)",
+      "RemoteStackTraceString": null,
+      "RemoteStackIndex": 0,
+      "ExceptionMethod": null,
+      "HResult": -2146232800,
+      "Source": "System.Net.Sockets",
+      "WatsonBuckets": null
+    },
+    "HelpURL": null,
+    "StackTraceString": "   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TWebSocketReceiveResultGetter,TWebSocketReceiveResult](Memory`1 payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)",
+    "RemoteStackTraceString": null,
+    "RemoteStackIndex": 0,
+    "ExceptionMethod": null,
+    "HResult": -2147467259,
+    "Source": "System.Net.WebSockets",
+    "WatsonBuckets": null,
+    "NativeErrorCode": 0,
+    "WebSocketErrorCode": 8
+  },
+  "HelpURL": null,
+  "StackTraceString": "   at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PumpWebSocket(WebSocket source, WebSocket destination, Int32 bufferSize, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.AcceptProxyWebSocketRequest(HttpContext context, Uri destinationUri, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projekte\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "RemoteStackTraceString": null,
+  "RemoteStackIndex": 0,
+  "ExceptionMethod": null,
+  "HResult": -2146233088,
+  "Source": "System.Private.CoreLib",
+  "WatsonBuckets": null,
+  "InnerExceptions": [
+    {
+      "ClassName": "System.Net.WebSockets.WebSocketException",
+      "Message": "The remote party closed the WebSocket connection without completing the close handshake.",
+      "Data": null,
+      "InnerException": {
+        "ClassName": "System.IO.IOException",
+        "Message": "Unable to read data from the transport connection: Eine vorhandene Verbindung wurde vom Remotehost geschlossen..",
+        "Data": null,
+        "InnerException": {
+          "ClassName": "System.Net.Sockets.SocketException",
+          "Message": "Eine vorhandene Verbindung wurde vom Remotehost geschlossen.",
+          "Data": null,
+          "InnerException": null,
+          "HelpURL": null,
+          "StackTraceString": null,
+          "RemoteStackTraceString": null,
+          "RemoteStackIndex": 0,
+          "ExceptionMethod": null,
+          "HResult": -2147467259,
+          "Source": null,
+          "WatsonBuckets": null,
+          "NativeErrorCode": 10054
+        },
+        "HelpURL": null,
+        "StackTraceString": "   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.GetResult(Int16 token)
+   at System.Net.Http.HttpConnection.ReadBufferedAsyncCore(Memory`1 destination)
+   at System.Net.Http.HttpConnection.RawConnectionStream.ReadAsync(Memory`1 buffer, CancellationToken cancellationToken)
+   at System.Net.WebSockets.ManagedWebSocket.EnsureBufferContainsAsync(Int32 minimumRequiredBytes, CancellationToken cancellationToken, Boolean throwOnPrematureClosure)
+   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TWebSocketReceiveResultGetter,TWebSocketReceiveResult](Memory`1 payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)",
+        "RemoteStackTraceString": null,
+        "RemoteStackIndex": 0,
+        "ExceptionMethod": null,
+        "HResult": -2146232800,
+        "Source": "System.Net.Sockets",
+        "WatsonBuckets": null
+      },
+      "HelpURL": null,
+      "StackTraceString": "   at System.Net.WebSockets.ManagedWebSocket.ReceiveAsyncPrivate[TWebSocketReceiveResultGetter,TWebSocketReceiveResult](Memory`1 payloadBuffer, CancellationToken cancellationToken, TWebSocketReceiveResultGetter resultGetter)",
+      "RemoteStackTraceString": null,
+      "RemoteStackIndex": 0,
+      "ExceptionMethod": null,
+      "HResult": -2147467259,
+      "Source": "System.Net.WebSockets",
+      "WatsonBuckets": null,
+      "NativeErrorCode": 0,
+      "WebSocketErrorCode": 8
+    }
+  ]
+}
+
+2019-07-23 15:28:26.494 +02:00 [Error] Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware: An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.set_ContentType(String value)
+   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\Projekte\DabeaV2\DabeaV2.Web\Middleware\ExceptionHandling\ExceptionMiddleware.cs:line 42
+   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\Projekte\DabeaV2\DabeaV2.Web\Middleware\ExceptionHandling\ExceptionMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+
+2019-07-23 15:28:26.504 +02:00 [Error] Microsoft.AspNetCore.Server.IIS.Core.IISHttpServer: Connection ID "18158513699168452622", Request ID "8000000f-0000-fc00-b63f-84710c7967bb": An unhandled exception was thrown by the application.
+System.InvalidOperationException: The response headers cannot be modified because the response has already started.
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.ThrowIfReadOnly()
+   at Microsoft.AspNetCore.HttpSys.Internal.HeaderCollection.set_Item(String key, StringValues value)
+   at Microsoft.AspNetCore.Http.Internal.DefaultHttpResponse.set_ContentType(String value)
+   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.HandleExceptionAsync(HttpContext context, Exception exception) in D:\Projekte\DabeaV2\DabeaV2.Web\Middleware\ExceptionHandling\ExceptionMiddleware.cs:line 42
+   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\Projekte\DabeaV2\DabeaV2.Web\Middleware\ExceptionHandling\ExceptionMiddleware.cs:line 36
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
+

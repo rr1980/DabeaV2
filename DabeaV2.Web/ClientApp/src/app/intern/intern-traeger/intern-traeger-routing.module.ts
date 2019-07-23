@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InternTraegerComponent } from './intern-traeger.component';
+import { InternTraegerMainComponent } from './intern-traeger-main/intern-traeger-main.component';
 
 
 const routes: Routes = [
   {
     path: '', component: InternTraegerComponent,
-    //children: [
-    //  { path: '', component: InternTraegerComponent },
-    //  { path: '**', redirectTo: 'home' }
-    //]
+    children: [
+      { path: '', redirectTo: 'main', pathMatch: 'full' },
+      { path: 'main', component: InternTraegerMainComponent },
+      { path: '**', redirectTo: 'main' }
+    ]
   },
   { path: '**', redirectTo: '' }
 ];
@@ -21,5 +23,6 @@ const routes: Routes = [
 export class InternTraegerRoutingModule { }
 
 export const routedComponents = [
-  InternTraegerComponent
+  InternTraegerComponent,
+  InternTraegerMainComponent
 ];

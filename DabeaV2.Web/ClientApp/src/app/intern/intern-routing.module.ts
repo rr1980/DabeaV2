@@ -11,7 +11,7 @@ const routes: Routes = [
   {
     path: '', component: InternComponent,
     children: [
-      { path: '', redirectTo: 'home' },
+      { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: InternHomeComponent },
       { path: 'traeger', loadChildren: "./intern-traeger/intern-traeger.module#InternTraegerModule", canLoad: [AuthInternGuard], canActivate: [AuthInternGuard] },
       { path: '**', redirectTo: 'home' }
