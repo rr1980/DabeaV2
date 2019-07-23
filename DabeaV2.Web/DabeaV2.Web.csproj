@@ -53,6 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\intern\intern-traeger\intern-traeger-routing.module.ts" />
     <None Remove="ClientApp\src\app\shared\guards\auth-extern.guard.ts" />
   </ItemGroup>
 

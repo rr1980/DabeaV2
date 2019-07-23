@@ -7,16 +7,29 @@ using System.Threading.Tasks;
 
 namespace DabeaV2.Web.Controllers
 {
-    public class DabeaV2ControllerException : Exception
+    [Authorize]
+    [Route("api/[controller]")]
+    public class TraegerController : Controller
     {
-        public DabeaV2ControllerException(string message) : base(message)
-        {
+        private readonly ITraegerService _traegerService;
 
+        public TraegerController(ITraegerService traegerService)
+        {
+            _traegerService = traegerService;
         }
 
-        public DabeaV2ControllerException(string message, Exception ex) : base("ControllerException: " + message, ex)
+        [Authorize]
+        [HttpPost("Get_Name")]
+        public async Task<TraegerNameResponseViewvModel> Get_Name(long id)
         {
-
+            try
+            {
+                return await _traegerService.Get_Name(id);
+            }
+            catch (Exception ex)
+            {
+                throw new DabeaV2ControllerException("Serverfehler", ex);
+            }
         }
     }
 

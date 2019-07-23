@@ -4,6 +4,7 @@ import { InternComponent } from './intern.component';
 import { InternHomeComponent } from './intern-home/intern-home.component';
 import { InternNavbarComponent } from './intern-navbar/intern-navbar.component';
 import { InternFooterComponent } from './intern-footer/intern-footer.component';
+import { AuthInternGuard } from '../shared/helper/auth-intern.guard';
 
 
 const routes: Routes = [
@@ -12,6 +13,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'home' },
       { path: 'home', component: InternHomeComponent },
+      { path: 'traeger', loadChildren: "./intern-traeger/intern-traeger.module#InternTraegerModule", canLoad: [AuthInternGuard], canActivate: [AuthInternGuard] },
       { path: '**', redirectTo: 'home' }
     ]
   },

@@ -11,6 +11,35 @@ using System.Threading.Tasks;
 
 namespace DabeaV2.Services
 {
+    public class TraegerService : ITraegerService
+    {
+        private readonly ILogger<TestService> _logger;
+        private readonly AppSettings _options;
+        private readonly IRepository _repository;
+
+        public TraegerService(IOptions<AppSettings> options, ILogger<TestService> logger, IRepository repository)
+        {
+            _options = options.Value;
+            _logger = logger;
+            _repository = repository;
+        }
+
+        public async Task<TraegerNameResponseViewvModel> Get_Name(long id)
+        {
+            var traeger = await _repository.Get<Traeger>(x => x.Id == id);
+
+            if(traeger == null)
+            {
+                throw new DabeaV2ServicesException($"Träger mit ID '{id}' nicht gefunden!");
+            }
+
+            return new TraegerNameResponseViewvModel
+            {
+                Name = traeger.Name.Trim() + (!string.IsNullOrEmpty(traeger.NameZusatz?.Trim()) ? ", " + traeger.NameZusatz?.Trim() : "")
+            };
+        }
+    }
+
     public class TestService : ITestService
     {
         private readonly ILogger<TestService> _logger;
