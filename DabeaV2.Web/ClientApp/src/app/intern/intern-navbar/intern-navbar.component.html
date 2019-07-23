@@ -1,6 +1,6 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" [routerLink]="['/intern/home']">
     DabeaV2
   </a>
 
@@ -14,15 +14,15 @@
        [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/intern']">
-          Intern
+        <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/intern/traeger/suche']">
+          Träger-Suche
         </a>
       </li>
-      <li class="nav-item">
+      <!--<li class="nav-item">
         <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/extern']">
           Extern
         </a>
-      </li>
+      </li>-->
 
     </ul>
     <ul class="navbar-nav ml-auto">

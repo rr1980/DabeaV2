@@ -9,11 +9,11 @@ namespace DabeaV2.Web.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
-    public class TraegerController : Controller
+    public class InternTraegerComponentController : Controller
     {
         private readonly ITraegerService _traegerService;
 
-        public TraegerController(ITraegerService traegerService)
+        public InternTraegerComponentController(ITraegerService traegerService)
         {
             _traegerService = traegerService;
         }

@@ -6,20 +6,20 @@ interface ITraegerNameViewModel {
 }
 
 @Component({
-  selector: 'cz-intern-traeger',
-  templateUrl: './intern-traeger.component.html',
-  styleUrls: ['./intern-traeger.component.scss']
+  selector: 'cz-intern-traeger-edit',
+  templateUrl: './intern-traeger-edit.component.html',
+  styleUrls: ['./intern-traeger-edit.component.scss']
 })
-export class InternTraegerComponent implements OnInit {
+export class InternTraegerEditComponent implements OnInit {
 
   data: ITraegerNameViewModel = {
-    name:""
+    name: ""
   } as ITraegerNameViewModel;
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   ngOnInit() {
-    this.http.post<ITraegerNameViewModel>(this.baseUrl + 'api/Traeger/Get_Name', { id: 1 }).subscribe(response => {
+    this.http.post<ITraegerNameViewModel>(this.baseUrl + 'api/InternTraegerComponent/Get_Name', { id: 1 }).subscribe(response => {
       this.data = response;
     })
   }
