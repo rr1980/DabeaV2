@@ -13,17 +13,22 @@
        [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['stamm']">
+        <a class="nav-link" [routerLink]="['/intern/traeger/edit/he/']" [queryParams]="queryParamsWithoutHeId">
+          Suchen
+        </a>
+      </li>
+      <li class="nav-item" [routerLinkActive]="['active']">
+        <a class="nav-link" [routerLink]="['stamm']" [queryParams]="queryParams">
           Stammdaten
         </a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['personal']">
+        <a class="nav-link" [routerLink]="['personal']" [queryParams]="queryParams">
           Personal
         </a>
       </li>
       <li class="nav-item" [routerLinkActive]="['active']">
-        <a class="nav-link" [routerLink]="['ue']">
+        <a class="nav-link" [routerLink]="['ue']" [queryParams]="queryParams">
           Untereinrichtugen
         </a>
       </li>

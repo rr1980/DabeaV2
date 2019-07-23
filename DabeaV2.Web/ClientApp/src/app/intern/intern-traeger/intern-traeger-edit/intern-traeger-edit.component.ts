@@ -1,5 +1,8 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
+import { Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 interface ITraegerNameViewModel {
   name: string;
@@ -10,18 +13,36 @@ interface ITraegerNameViewModel {
   templateUrl: './intern-traeger-edit.component.html',
   styleUrls: ['./intern-traeger-edit.component.scss']
 })
-export class InternTraegerEditComponent implements OnInit {
+export class InternTraegerEditComponent implements OnInit, OnDestroy {
+
+
+  tId?: number;
+  hId?: number;
+
+  sub: Subscription;
 
   data: ITraegerNameViewModel = {
     name: ""
   } as ITraegerNameViewModel;
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
+
+  get queryParams() {
+    return { tId: this.tId, hId: this.hId };
+  }
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.http.post<ITraegerNameViewModel>(this.baseUrl + 'api/InternTraegerComponent/Get_Name', { id: 1 }).subscribe(response => {
-      this.data = response;
+    this.sub = this.route.queryParams.subscribe(params => {
+      this.tId = +params['tId'] || null;
+      this.hId = +params['hId'] || null;
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
 }
