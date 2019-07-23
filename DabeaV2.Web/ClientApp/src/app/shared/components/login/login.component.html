@@ -1,7 +1,6 @@
-<div>
-  <h4 >Login</h4>
-  <div >
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="container" style="height: 100vh">
+  <div class="row justify-content-center align-items-center" style="height: 100vh">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="col-12">
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />

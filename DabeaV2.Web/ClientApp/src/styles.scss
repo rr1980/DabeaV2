@@ -1,6 +1,9 @@
 @import 'variables';
 @import '../node_modules/bootstrap/scss/bootstrap';
 
+html {
+  min-height: 100vh;
+}
 body {
   min-height: 100vh;
 }

@@ -1,34 +1,7 @@
-<div style="text-align:center">
-  <cz-name-profile></cz-name-profile>
-  <h1>
-    Welcome to Intern!
-  </h1>
-</div>
-<ul>
-  <li>
-    <a [routerLinkActive]="['active']" [routerLink]="['/intern']">
-      Intern
-    </a>
-  </li>
-  <li>
-    <a [routerLinkActive]="['active']" [routerLink]="['/extern']">
-      Extern
-    </a>
-  </li>
-  <li>
-    <button class="btn btn-primary" (click)="onClickLogout()">
-      Logout
-    </button>
-  </li>
-  <li>
-    <cz-name [id]="1" [entityType]="1"></cz-name>
-    <cz-name-profile></cz-name-profile>
-  </li>
-</ul>
 
-<!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">
-    Brand
+    DabeaV2
   </a>
 
   <button class="navbar-toggler" type="button"
@@ -41,12 +14,24 @@
        [ngClass]="{ 'show': navbarOpen }">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Item 1</a>
+        <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/intern']">
+          Intern
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/extern']">
+          Extern
+        </a>
       </li>
 
+    </ul>
+    <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Item 2</a>
+        <cz-name-profile class="nav-link"></cz-name-profile>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['']" (click)="onClickLogout()">Logout</a>
       </li>
     </ul>
   </div>
-</nav>-->
+</nav>
