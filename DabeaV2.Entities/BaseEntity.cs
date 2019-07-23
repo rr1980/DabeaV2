@@ -29,6 +29,9 @@ namespace DabeaV2.Entities
 
         public virtual ICollection<ModificationItem> ModificationItems { get; set; }
 
+        public long BenutzerId { get; set; }
+        public virtual Benutzer Benutzer { get; set; }
+
         public long? ChangedPersonId { get; set; }
         public virtual Person ChangedPerson { get; set; }
 
@@ -38,8 +41,11 @@ namespace DabeaV2.Entities
         public long? ChangedKontaktId { get; set; }
         public virtual Kontakt ChangedKontakt { get; set; }
 
-        public long BenutzerId { get; set; }
-        public virtual Benutzer Benutzer { get; set; }
+        public long? ChangedAdresseId { get; set; }
+        public virtual Adresse ChangedAdresse { get; set; }
+
+        public long? ChangedTraegerId { get; set; }
+        public virtual Traeger ChangedTraeger { get; set; }
     }
 
     public class ModificationItem
@@ -54,6 +60,45 @@ namespace DabeaV2.Entities
         public virtual Modification Modification { get; set; }
     }
 
+    public class Adresse : BaseEntity, IModifiableEntity
+    {
+        public Adresse()
+        {
+            Modifications = new HashSet<Modification>();
+        }
+
+        public string Strasse { get; set; }
+        public string Ort { get; set; }
+        public string Plz { get; set; }
+        public int Hausnummer { get; set; }
+        public string HausnummerZusatz { get; set; }
+
+        public long? PersonId { get; set; }
+        public virtual Person Person { get; set; }
+
+        public long? TraegerId { get; set; }
+        public virtual Traeger Traeger { get; set; }
+
+        public virtual ICollection<Modification> Modifications { get; set; }
+    }
+
+    public class Traeger : BaseEntity, IModifiableEntity
+    {
+        public Traeger()
+        {
+            Modifications = new HashSet<Modification>();
+            Kontakte = new HashSet<Kontakt>();
+            Adressen = new HashSet<Adresse>();
+        }
+
+        public string Name { get; set; }
+        public string NameZusatz { get; set; }
+
+        public virtual ICollection<Modification> Modifications { get; set; }
+        public virtual ICollection<Kontakt> Kontakte { get; set; }
+        public virtual ICollection<Adresse> Adressen { get; set; }
+    }
+
     public class Person : BaseEntity, IModifiableEntity
     {
         public Person()
@@ -61,6 +106,7 @@ namespace DabeaV2.Entities
             Modifications = new HashSet<Modification>();
             Benutzer = new HashSet<Benutzer>();
             Kontakte = new HashSet<Kontakt>();
+            Adressen = new HashSet<Adresse>();
         }
 
         public string Name { get; set; }
@@ -69,7 +115,7 @@ namespace DabeaV2.Entities
         public virtual ICollection<Modification> Modifications { get; set; }
         public virtual ICollection<Benutzer> Benutzer { get; set; }
         public virtual ICollection<Kontakt> Kontakte { get; set; }
-
+        public virtual ICollection<Adresse> Adressen { get; set; }
     }
 
     public class Benutzer : BaseEntity, IModifiableEntity
@@ -78,7 +124,6 @@ namespace DabeaV2.Entities
         {
             Modifications = new HashSet<Modification>();
             OwnModifications = new HashSet<Modification>();
-
         }
 
         public virtual ICollection<Modification> Modifications { get; set; }

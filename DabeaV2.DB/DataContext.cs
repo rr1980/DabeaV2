@@ -11,6 +11,8 @@ namespace DabeaV2.DB
         public DbSet<Person> Personen { get; set; }
         public DbSet<Benutzer> Benutzer { get; set; }
         public DbSet<Kontakt> Kontakte { get; set; }
+        public DbSet<Traeger> Traeger { get; set; }
+        public DbSet<Adresse> Adressen { get; set; }
 
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
@@ -37,12 +39,21 @@ namespace DabeaV2.DB
                 entity.HasOne(x => x.ChangedPerson).WithMany(x => x.Modifications).HasForeignKey(x => x.ChangedPersonId);
                 entity.HasOne(x => x.ChangedBenutzer).WithMany(x => x.Modifications).HasForeignKey(x => x.ChangedBenutzerId);
                 entity.HasOne(x => x.ChangedKontakt).WithMany(x => x.Modifications).HasForeignKey(x => x.ChangedKontaktId);
+                entity.HasOne(x => x.ChangedAdresse).WithMany(x => x.Modifications).HasForeignKey(x => x.ChangedAdresseId);
+                entity.HasOne(x => x.ChangedTraeger).WithMany(x => x.Modifications).HasForeignKey(x => x.ChangedTraegerId);
             });
 
             modelBuilder.Entity<ModificationItem>(entity =>
             {
                 entity.HasKey(x => x.Id);
                 entity.HasOne(x => x.Modification).WithMany(x => x.ModificationItems).HasForeignKey(x => x.ModificationId);
+            });
+
+            modelBuilder.Entity<Adresse>(entity =>
+            {
+                entity.HasKey(x => x.Id);
+                entity.HasOne(x => x.Person).WithMany(x => x.Adressen).HasForeignKey(x => x.PersonId);
+                entity.HasOne(x => x.Traeger).WithMany(x => x.Adressen).HasForeignKey(x => x.TraegerId);
             });
 
             modelBuilder.Entity<Person>(entity =>

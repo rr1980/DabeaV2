@@ -24,6 +24,21 @@ namespace DabeaV2.DB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Traeger",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    NameZusatz = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Traeger", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Benutzer",
                 columns: table => new
                 {
@@ -48,6 +63,38 @@ namespace DabeaV2.DB.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Adressen",
+                columns: table => new
+                {
+                    Id = table.Column<long>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    IsActive = table.Column<bool>(nullable: false),
+                    Strasse = table.Column<string>(nullable: true),
+                    Ort = table.Column<string>(nullable: true),
+                    Plz = table.Column<string>(nullable: true),
+                    Hausnummer = table.Column<int>(nullable: false),
+                    HausnummerZusatz = table.Column<string>(nullable: true),
+                    PersonId = table.Column<long>(nullable: true),
+                    TraegerId = table.Column<long>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Adressen", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Adressen_Personen_PersonId",
+                        column: x => x.PersonId,
+                        principalTable: "Personen",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Adressen_Traeger_TraegerId",
+                        column: x => x.TraegerId,
+                        principalTable: "Traeger",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Kontakte",
                 columns: table => new
                 {
@@ -56,7 +103,8 @@ namespace DabeaV2.DB.Migrations
                     IsActive = table.Column<bool>(nullable: false),
                     PersonId = table.Column<long>(nullable: false),
                     Telefon = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true),
+                    TraegerId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -67,6 +115,12 @@ namespace DabeaV2.DB.Migrations
                         principalTable: "Personen",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Kontakte_Traeger_TraegerId",
+                        column: x => x.TraegerId,
+                        principalTable: "Traeger",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -77,10 +131,12 @@ namespace DabeaV2.DB.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Date = table.Column<DateTime>(nullable: false),
                     ModificationType = table.Column<int>(nullable: false),
+                    BenutzerId = table.Column<long>(nullable: false),
                     ChangedPersonId = table.Column<long>(nullable: true),
                     ChangedBenutzerId = table.Column<long>(nullable: true),
                     ChangedKontaktId = table.Column<long>(nullable: true),
-                    BenutzerId = table.Column<long>(nullable: false)
+                    ChangedAdresseId = table.Column<long>(nullable: true),
+                    ChangedTraegerId = table.Column<long>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -91,6 +147,12 @@ namespace DabeaV2.DB.Migrations
                         principalTable: "Benutzer",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Modifications_Adressen_ChangedAdresseId",
+                        column: x => x.ChangedAdresseId,
+                        principalTable: "Adressen",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Modifications_Benutzer_ChangedBenutzerId",
                         column: x => x.ChangedBenutzerId,
@@ -107,6 +169,12 @@ namespace DabeaV2.DB.Migrations
                         name: "FK_Modifications_Personen_ChangedPersonId",
                         column: x => x.ChangedPersonId,
                         principalTable: "Personen",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Modifications_Traeger_ChangedTraegerId",
+                        column: x => x.ChangedTraegerId,
+                        principalTable: "Traeger",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -134,6 +202,16 @@ namespace DabeaV2.DB.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Adressen_PersonId",
+                table: "Adressen",
+                column: "PersonId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Adressen_TraegerId",
+                table: "Adressen",
+                column: "TraegerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Benutzer_PersonId",
                 table: "Benutzer",
                 column: "PersonId");
@@ -144,6 +222,11 @@ namespace DabeaV2.DB.Migrations
                 column: "PersonId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Kontakte_TraegerId",
+                table: "Kontakte",
+                column: "TraegerId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ModificationItems_ModificationId",
                 table: "ModificationItems",
                 column: "ModificationId");
@@ -152,6 +235,11 @@ namespace DabeaV2.DB.Migrations
                 name: "IX_Modifications_BenutzerId",
                 table: "Modifications",
                 column: "BenutzerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Modifications_ChangedAdresseId",
+                table: "Modifications",
+                column: "ChangedAdresseId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Modifications_ChangedBenutzerId",
@@ -167,6 +255,11 @@ namespace DabeaV2.DB.Migrations
                 name: "IX_Modifications_ChangedPersonId",
                 table: "Modifications",
                 column: "ChangedPersonId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Modifications_ChangedTraegerId",
+                table: "Modifications",
+                column: "ChangedTraegerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -181,10 +274,16 @@ namespace DabeaV2.DB.Migrations
                 name: "Benutzer");
 
             migrationBuilder.DropTable(
+                name: "Adressen");
+
+            migrationBuilder.DropTable(
                 name: "Kontakte");
 
             migrationBuilder.DropTable(
                 name: "Personen");
+
+            migrationBuilder.DropTable(
+                name: "Traeger");
         }
     }
 }

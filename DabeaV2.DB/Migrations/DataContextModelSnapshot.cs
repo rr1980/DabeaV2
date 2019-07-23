@@ -19,6 +19,37 @@ namespace DabeaV2.DB.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("DabeaV2.Entities.Adresse", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Hausnummer");
+
+                    b.Property<string>("HausnummerZusatz");
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Ort");
+
+                    b.Property<long?>("PersonId");
+
+                    b.Property<string>("Plz");
+
+                    b.Property<string>("Strasse");
+
+                    b.Property<long?>("TraegerId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("TraegerId");
+
+                    b.ToTable("Adressen");
+                });
+
             modelBuilder.Entity("DabeaV2.Entities.Benutzer", b =>
                 {
                     b.Property<long>("Id")
@@ -58,9 +89,13 @@ namespace DabeaV2.DB.Migrations
 
                     b.Property<string>("Telefon");
 
+                    b.Property<long?>("TraegerId");
+
                     b.HasKey("Id");
 
                     b.HasIndex("PersonId");
+
+                    b.HasIndex("TraegerId");
 
                     b.ToTable("Kontakte");
                 });
@@ -73,11 +108,15 @@ namespace DabeaV2.DB.Migrations
 
                     b.Property<long>("BenutzerId");
 
+                    b.Property<long?>("ChangedAdresseId");
+
                     b.Property<long?>("ChangedBenutzerId");
 
                     b.Property<long?>("ChangedKontaktId");
 
                     b.Property<long?>("ChangedPersonId");
+
+                    b.Property<long?>("ChangedTraegerId");
 
                     b.Property<DateTime>("Date");
 
@@ -87,11 +126,15 @@ namespace DabeaV2.DB.Migrations
 
                     b.HasIndex("BenutzerId");
 
+                    b.HasIndex("ChangedAdresseId");
+
                     b.HasIndex("ChangedBenutzerId");
 
                     b.HasIndex("ChangedKontaktId");
 
                     b.HasIndex("ChangedPersonId");
+
+                    b.HasIndex("ChangedTraegerId");
 
                     b.ToTable("Modifications");
                 });
@@ -134,6 +177,34 @@ namespace DabeaV2.DB.Migrations
                     b.ToTable("Personen");
                 });
 
+            modelBuilder.Entity("DabeaV2.Entities.Traeger", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsActive");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("NameZusatz");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Traeger");
+                });
+
+            modelBuilder.Entity("DabeaV2.Entities.Adresse", b =>
+                {
+                    b.HasOne("DabeaV2.Entities.Person", "Person")
+                        .WithMany("Adressen")
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("DabeaV2.Entities.Traeger", "Traeger")
+                        .WithMany("Adressen")
+                        .HasForeignKey("TraegerId");
+                });
+
             modelBuilder.Entity("DabeaV2.Entities.Benutzer", b =>
                 {
                     b.HasOne("DabeaV2.Entities.Person", "Person")
@@ -150,6 +221,10 @@ namespace DabeaV2.DB.Migrations
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("DabeaV2.Entities.Traeger", null)
+                        .WithMany("Kontakte")
+                        .HasForeignKey("TraegerId");
                 });
 
             modelBuilder.Entity("DabeaV2.Entities.Modification", b =>
@@ -159,6 +234,10 @@ namespace DabeaV2.DB.Migrations
                         .HasForeignKey("BenutzerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("DabeaV2.Entities.Adresse", "ChangedAdresse")
+                        .WithMany("Modifications")
+                        .HasForeignKey("ChangedAdresseId");
 
                     b.HasOne("DabeaV2.Entities.Benutzer", "ChangedBenutzer")
                         .WithMany("Modifications")
@@ -171,6 +250,10 @@ namespace DabeaV2.DB.Migrations
                     b.HasOne("DabeaV2.Entities.Person", "ChangedPerson")
                         .WithMany("Modifications")
                         .HasForeignKey("ChangedPersonId");
+
+                    b.HasOne("DabeaV2.Entities.Traeger", "ChangedTraeger")
+                        .WithMany("Modifications")
+                        .HasForeignKey("ChangedTraegerId");
                 });
 
             modelBuilder.Entity("DabeaV2.Entities.ModificationItem", b =>

@@ -36,6 +36,26 @@ namespace DabeaV2.DB
 
         private static void Seed(DataContext context, AppSettings options)
         {
+            var traeger = new Traeger
+            {
+                IsActive = true,
+
+                Name = "Sonnenschein",
+                NameZusatz = "e.V."
+            };
+
+            traeger.Adressen.Add(new Adresse
+            {
+                IsActive = true,
+
+                Strasse = "Am Teich",
+                Ort = "Strausberg",
+                Plz = "15344",
+                Hausnummer = 7,
+                HausnummerZusatz = "d"
+            });
+            context.Traeger.Add(traeger);
+
             // Rene Riesner
             var person_rr = new Person
             {
@@ -44,6 +64,17 @@ namespace DabeaV2.DB
                 Name = "Riesner",
                 VorName = "Rene",
             };
+
+            person_rr.Adressen.Add(new Adresse
+            {
+                IsActive = true,
+
+                Strasse = "Am Annatal",
+                Ort = "Strausberg",
+                Plz = "15344",
+                Hausnummer = 11,
+                HausnummerZusatz = "a"
+            });
 
             person_rr.Benutzer.Add
             (
