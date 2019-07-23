@@ -21,7 +21,7 @@ export class InternTraegerEditComponent implements OnInit {
   ngOnInit() {
     this.http.post<ITraegerNameViewModel>(this.baseUrl + 'api/InternTraegerComponent/Get_Name', { id: 1 }).subscribe(response => {
       this.data = response;
-    })
+    });
   }
 
 }
