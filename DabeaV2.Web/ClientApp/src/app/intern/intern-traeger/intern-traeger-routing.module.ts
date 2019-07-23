@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InternTraegerSearchComponent } from './intern-traeger-search/intern-traeger-search.component';
 import { AuthInternGuard } from '../../shared/helper/auth-intern.guard';
+import { InternTraegerComponent } from './intern-traeger.component';
 
 //function getData(): string {
 //  console.debug("+++");
@@ -10,14 +11,10 @@ import { AuthInternGuard } from '../../shared/helper/auth-intern.guard';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '', component: InternTraegerComponent,
     children: [
-      {
-        path: '', redirectTo: 'search', pathMatch: 'full'
-      },
-      { path: 'search', component: InternTraegerSearchComponent },
+      { path: 'search', component: InternTraegerSearchComponent, children:[] },
       { path: 'edit', loadChildren: "./intern-traeger-edit/intern-traeger-edit.module#InternTraegerEditModule", canLoad: [AuthInternGuard], canActivate: [AuthInternGuard] },
-      { path: '**', redirectTo: 'search' }
     ]
   },
   { path: '**', redirectTo: '' }
@@ -30,5 +27,6 @@ const routes: Routes = [
 export class InternTraegerRoutingModule { }
 
 export const routedComponents = [
+  InternTraegerComponent,
   InternTraegerSearchComponent,
 ];

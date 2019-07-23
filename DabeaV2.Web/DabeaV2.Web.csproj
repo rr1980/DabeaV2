@@ -59,6 +59,7 @@
     <None Remove="ClientApp\src\app\intern\intern-traeger\intern-traeger-edit\intern-traeger-edit.component.ts" />
     <None Remove="ClientApp\src\app\intern\intern-traeger\intern-traeger-edit\intern-traeger-edit.module.ts" />
     <None Remove="ClientApp\src\app\intern\intern-traeger\intern-traeger-routing.module.ts" />
+    <None Remove="ClientApp\src\app\intern\intern-traeger\intern-traeger.component.ts" />
     <None Remove="ClientApp\src\app\shared\guards\auth-extern.guard.ts" />
   </ItemGroup>
 

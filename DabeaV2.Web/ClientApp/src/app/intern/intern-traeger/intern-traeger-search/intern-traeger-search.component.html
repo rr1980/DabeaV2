@@ -2,7 +2,10 @@
 
 <ul>
   <li class="nav-item">
-    <a class="nav-link" [routerLinkActive]="['active']" [routerLink]="['/intern/traeger/edit']" [queryParams]="{ tId: 1 }">
+    <a class="nav-link" (click)="onClickGo(1)">
+      Edit
+    </a>
+    <a class="nav-link" (click)="onClickGo(2)">
       Edit
     </a>
   </li>

@@ -36,6 +36,9 @@ export class InternTraegerEditComponent implements OnInit, OnDestroy {
     this.sub = this.route.queryParams.subscribe(params => {
       this.tId = +params['tId'] || null;
       this.hId = +params['hId'] || null;
+
+      console.debug("=", this.tId);
+
     });
   }
 

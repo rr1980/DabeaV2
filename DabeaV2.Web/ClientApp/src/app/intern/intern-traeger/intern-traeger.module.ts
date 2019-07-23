@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InternTraegerRoutingModule, routedComponents } from './intern-traeger-routing.module';
 import { SharedModule } from '../../shared/modules/shared/shared.module';
+import { InternTraegerService } from './intern-traeger.service';
 
 @NgModule({
   imports: [
@@ -9,6 +10,7 @@ import { SharedModule } from '../../shared/modules/shared/shared.module';
     InternTraegerRoutingModule,
     SharedModule
   ],
-  declarations: [routedComponents]
+  declarations: [routedComponents],
+  providers: [InternTraegerService]
 })
 export class InternTraegerModule { }

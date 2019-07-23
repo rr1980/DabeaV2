@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InternTraegerService } from '../intern-traeger.service';
 
 @Component({
   selector: 'cz-intern-traeger-search',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InternTraegerSearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(private internTraegerService: InternTraegerService) { }
 
   ngOnInit() {
   }
 
+  onClickGo(id: number) {
+    this.internTraegerService.go({ id: id, name: id.toString() });
+
+    //this.addHe({ id: id, name: id.toString() } as IHeRouteModel);
+
+  }
 }
