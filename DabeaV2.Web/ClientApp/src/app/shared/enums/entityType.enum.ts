@@ -1,5 +1,6 @@
 
 export enum EntityType {
   None,
-  Person
+  Person,
+  Benutzer
 }

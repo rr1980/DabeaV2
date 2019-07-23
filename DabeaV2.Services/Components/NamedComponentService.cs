@@ -11,39 +11,50 @@ using System.Threading.Tasks;
 
 namespace DabeaV2.Services.Components
 {
-    public class NamedComponentService : BaseComponentService<NameComponentViewModel>, INamedComponentService
+    public class NamedComponentService : BaseComponentService, INamedComponentService
     {
-        public NamedComponentService(IOptions<AppSettings> options, ILogger<NamedComponentService> logger, IRepository repository) : base(options, logger, repository)
+        private readonly IBenutzerService _benutzerService;
+
+        public NamedComponentService(IOptions<AppSettings> options, ILogger<NamedComponentService> logger, IRepository repository, IBenutzerService benutzerService) : base(options, logger, repository)
         {
+            _benutzerService = benutzerService;
         }
 
-        public override Task<ComponentViewModel<NameComponentViewModel>> Get(ComponentViewModel<NameComponentViewModel> request)
+        public Task<ComponentViewModel<NamePersonComponentViewModel>> Get_Person(RequestComponentViewModel request)
         {
-
-            Task<ComponentViewModel<NameComponentViewModel>> result = null;
-
-            switch (request.EntityType)
+            return BuildResult<NamePersonComponentViewModel, Person>(request, (entity, vm) => 
             {
-                case EntityType.Person:
-                    result = Build_Perso_Get(request);
-                    break;
-                default:
-                    throw new Exception($"EntiyType '{request.EntityType.ToString()}' unbekannt!");
-            }
+                vm.Name = entity.Name;
+                vm.VorName = entity.VorName;
+                vm.FullName = entity.Name + ", " + entity.VorName;
 
-            return result;
-        }
-
-        private Task<ComponentViewModel<NameComponentViewModel>> Build_Perso_Get(ComponentViewModel<NameComponentViewModel> request)
-        {
-            return BuildResult<Person>(request, entity => new NameComponentViewModel
-            {
-                Id = entity.Id,
-                IsActive = entity.IsActive,
-                Name = entity.Name,
-                VorName = entity.VorName,
-                FullName = entity.Name + ", " + entity.VorName
+                return vm;
             });
         }
+
+        public Task<ComponentViewModel<NameBenutzerComponentViewModel>> Get_Benutzer(RequestComponentViewModel request)
+        {
+            request.Id = _benutzerService.GetCurrentBenutzerId();
+
+            return BuildResult<NameBenutzerComponentViewModel, Benutzer>(request, (entity, vm) =>
+            {
+                vm.Name = entity.Person.Name;
+                vm.VorName = entity.Person.VorName;
+                vm.FullName = entity.Person.Name + ", " + entity.Person.VorName;
+                vm.UserName = entity.UserName;
+                return vm;
+            });
+        }
+
+
+        //public Task<ComponentViewModel<NamePersonComponentViewModel>> Get_Person(RequestComponentViewModel request)
+        //{
+        //    return BuildResult<NamePersonComponentViewModel, Person>(request, entity => SetBasics(entity, new NamePersonComponentViewModel
+        //    {
+        //        Name = entity.Name,
+        //        VorName = entity.VorName,
+        //        FullName = entity.Name + ", " + entity.VorName
+        //    }));
+        //}
     }
 }

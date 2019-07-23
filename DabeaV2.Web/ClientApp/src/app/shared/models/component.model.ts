@@ -1,12 +1,12 @@
 
 
-export interface IComponentModel<T> {
+export abstract class IComponentModel<T> {
   id?: number;
   entityType: number;
   result: T;
 }
 
-export interface IBaseComponentModel {
+export abstract class IBaseComponentModel {
   id?: number;
   isActive: boolean;
 }

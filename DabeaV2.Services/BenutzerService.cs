@@ -4,8 +4,10 @@ using DabeaV2.Repositories.Interfaces;
 using DabeaV2.Services.Interfaces;
 using DabeaV2.ViewModels;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using System;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,11 +17,35 @@ namespace DabeaV2.Services
     {
         private readonly AppSettings _options;
         private readonly IRepository _repository;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public BenutzerService(IOptions<AppSettings> options, IRepository repository)
+        public BenutzerService(IOptions<AppSettings> options, IRepository repository, IHttpContextAccessor httpContextAccessor)
         {
             _options = options.Value;
             _repository = repository;
+            _httpContextAccessor = httpContextAccessor;
+        }
+
+        public long? GetCurrentBenutzerId()
+        {
+            if (_httpContextAccessor != null && _httpContextAccessor.HttpContext != null && _httpContextAccessor.HttpContext.User != null)
+            {
+                var _uId = _httpContextAccessor.HttpContext.User.Claims.Where(x => x.Type == "UserId").Select(x => x.Value).FirstOrDefault();
+
+                if (!string.IsNullOrEmpty(_uId))
+                {
+                    var uId = long.Parse(_uId);
+
+                    if (uId == 0)
+                    {
+                        throw new Exception("UserID not Found!");
+                    }
+
+                    return uId;
+                }
+            }
+
+            return null;
         }
 
         public async Task<BenutzerValidationResultModel> ValidateUser(string username, string password)

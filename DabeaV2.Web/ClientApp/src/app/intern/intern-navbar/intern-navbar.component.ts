@@ -20,7 +20,7 @@ export class InternNavbarComponent implements OnInit {
   }
 
   toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
+    this.navbarOpen = !this.navbarOpen; 
   }
 
   onClickLogout() {

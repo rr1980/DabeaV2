@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
+          console.debug("LoginComponent onSubmit", data);
           if (this.returnUrl && this.returnUrl.length > 1) {
             this.router.navigate([this.returnUrl]);
           }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace DabeaV2.Services.Components
 {
 
-    public abstract class BaseComponentService<TComponentViewModel> : IBaseComponentService<TComponentViewModel>
+    public abstract class BaseComponentService : IBaseComponentService
     {
         protected readonly ILogger _logger;
         protected readonly AppSettings _options;
@@ -23,24 +23,48 @@ namespace DabeaV2.Services.Components
             _logger = logger;
             _repository = repository;
         }
-
-        public abstract Task<ComponentViewModel<TComponentViewModel>> Get(ComponentViewModel<TComponentViewModel> request);
-
-        protected async Task<ComponentViewModel<TComponentViewModel>> BuildResult<T>(ComponentViewModel<NameComponentViewModel> request, Func<T, TComponentViewModel> componentViewModelMapperFunc) where T :BaseEntity
+        protected async Task<ComponentViewModel<TComponentViewModel>> BuildResult<TComponentViewModel, TEntity>(RequestComponentViewModel request, Func<TEntity, TComponentViewModel, TComponentViewModel> componentViewModelMapperFunc) where TEntity : BaseEntity where TComponentViewModel : BaseComponentViewModel
         {
-            var entity = await _repository.Get<T>(x => x.Id == request.Id);
+            var entity = await _repository.Get<TEntity>(x => x.Id == request.Id);
 
-            if(entity == null)
+            if (entity == null)
             {
                 throw new Exception($"Entity von Type '{request.EntityType.ToString()}' und Id '{request.Id}' konnte nicht gefunden werden!");
             }
+
+            TComponentViewModel vm = (TComponentViewModel)Activator.CreateInstance<TComponentViewModel>();
 
             return new ComponentViewModel<TComponentViewModel>
             {
                 Id = entity.Id,
                 EntityType = request.EntityType,
-                Result = componentViewModelMapperFunc(entity)
+                Result = componentViewModelMapperFunc(entity, vm)
             };
+        }
+
+        //protected async Task<ComponentViewModel<TComponentViewModel>> BuildResult<TComponentViewModel, TEntity>(RequestComponentViewModel request, Func<TEntity, TComponentViewModel> componentViewModelMapperFunc) where TEntity : BaseEntity where TComponentViewModel : BaseComponentViewModel
+        //{
+        //    var entity = await _repository.Get<TEntity>(x => x.Id == request.Id);
+
+        //    if(entity == null)
+        //    {
+        //        throw new Exception($"Entity von Type '{request.EntityType.ToString()}' und Id '{request.Id}' konnte nicht gefunden werden!");
+        //    }
+
+        //    return new ComponentViewModel<TComponentViewModel>
+        //    {
+        //        Id = entity.Id,
+        //        EntityType = request.EntityType,
+        //        Result = componentViewModelMapperFunc(entity)
+        //    };
+        //}
+
+        protected TComponentViewModel SetBasics<TEntity, TComponentViewModel>(TEntity entity, TComponentViewModel componentViewModel) where TEntity : BaseEntity where TComponentViewModel : BaseComponentViewModel
+        {
+            componentViewModel.Id = entity.Id;
+            componentViewModel.IsActive = entity.IsActive;
+
+            return componentViewModel;
         }
     }
 }

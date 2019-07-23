@@ -43,7 +43,7 @@ namespace DabeaV2.Web
                 options.EnableDetailedErrors();
                 //options.EnableSensitiveDataLogging();
 
-            }, ServiceLifetime.Singleton);
+            }, ServiceLifetime.Scoped);
 
             services.Configure<AppSettings>(o => Configuration.Bind(o));
 

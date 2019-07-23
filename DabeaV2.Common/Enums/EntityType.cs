@@ -3,6 +3,7 @@
     public enum EntityType
     {
         None,
-        Person
+        Person,
+        Benutzer
     }
 }

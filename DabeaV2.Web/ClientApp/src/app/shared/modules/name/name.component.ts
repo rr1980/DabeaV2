@@ -1,14 +1,9 @@
 import { Component, OnInit, Inject, Input } from '@angular/core';
-import { IBaseComponentModel, IComponentModel } from '../../models/component.model';
-import { HttpClient } from '@angular/common/http';
 import { EntityType } from '../../enums/entityType.enum';
+import { NameService, INamePersonComponentModel } from './name.service';
+import { IComponentModel } from '../../models/component.model';
 
-interface INameComponentModel extends IBaseComponentModel {
-  name: string;
-  vorName: string;
-  fullName: string;
 
-}
 
 @Component({
   selector: 'cz-name',
@@ -20,18 +15,24 @@ export class NameComponent implements OnInit {
   @Input() entityType: EntityType;
   @Input() id: number;
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
+  data: IComponentModel<INamePersonComponentModel> = {
+    result: {
+      name: "",
+      vorName: "",
+      fullName: "" 
+    } as INamePersonComponentModel
+  } as IComponentModel<INamePersonComponentModel>;
 
-  ngOnInit() {
-
-    this.load();
-  }
-
-  load() {
-    var request = { id: this.id, entityType: this.entityType } as IComponentModel<INameComponentModel>;
-
-    this.http.post<IComponentModel<INameComponentModel>>(this.baseUrl + 'api/NameComponent/Get', request).subscribe(response => {
-      console.log("Response:", response);
-    });
+  constructor(private nameService: NameService) { }
+   
+  ngOnInit() { 
+    switch (this.entityType) {
+      case EntityType.Person:
+        this.nameService.getPerson(this.id).subscribe(response => {
+          this.data = response;
+        });
+        break; 
+      default:
+    }
   }
 }

@@ -19,10 +19,17 @@ namespace DabeaV2.Web.Controllers.Components
         }
 
         [Authorize]
-        [HttpPost("Get")]
-        public async Task<ComponentViewModel<NameComponentViewModel>> Get([FromBody]ComponentViewModel<NameComponentViewModel> request)
+        [HttpPost("Get_Person")]
+        public async Task<ComponentViewModel<NamePersonComponentViewModel>> Get_Person([FromBody]RequestComponentViewModel request)
         {
-            return await _namedComponentService.Get(request);
+            return await _namedComponentService.Get_Person(request);
+        }
+
+        [Authorize]
+        [HttpPost("Get_Benutzer")]
+        public async Task<ComponentViewModel<NameBenutzerComponentViewModel>> Get_Benutzer([FromBody]RequestComponentViewModel request)
+        {
+            return await _namedComponentService.Get_Benutzer(request);
         }
     }
 }
