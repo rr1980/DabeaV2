@@ -58,6 +58,7 @@ namespace DabeaV2.Web
             //services.AddScoped<ITestDataService, TestDataService>();
             services.AddScoped<ITestService, TestService>();
             services.AddScoped<INamedComponentService, NamedComponentService>();
+            services.AddScoped<ITraegerService, TraegerService>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                        .AddJwtBearer(jwtBearerOptions =>

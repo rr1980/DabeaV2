@@ -9,21 +9,22 @@ namespace DabeaV2.Web.Controllers
 {
     [Authorize]
     [Route("api/[controller]")]
-    public class TestController : Controller
+    public class TraegerController : Controller
     {
-        private readonly ITestService _testService;
+        private readonly ITraegerService _traegerService;
 
-        public TestController(ITestService testService)
+        public TraegerController(ITraegerService traegerService)
         {
-            _testService = testService;
+            _traegerService = traegerService;
         }
 
-        [HttpPost("Test1")]
-        public async Task<Test1ResponseViewvModel> Test1()
+        [Authorize]
+        [HttpPost("Get_Name")]
+        public async Task<TraegerNameResponseViewvModel> Get_Name([FromBody] TraegerNameRequestViewModel vm)
         {
             try
             {
-                return await _testService.Test1();
+                return await _traegerService.Get_Name(vm.Id);
             }
             catch (Exception ex)
             {

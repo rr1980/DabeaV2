@@ -790,3 +790,109 @@ System.InvalidOperationException: The response headers cannot be modified becaus
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
    at Microsoft.AspNetCore.Server.IIS.Core.IISHttpContextOfT`1.ProcessRequestAsync()
 
+2019-07-23 15:34:57.506 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: Unable to resolve service for type 'DabeaV2.Services.Interfaces.ITraegerService' while attempting to activate 'DabeaV2.Web.Controllers.TraegerController'.: {
+  "ClassName": "System.InvalidOperationException",
+  "Message": "Unable to resolve service for type 'DabeaV2.Services.Interfaces.ITraegerService' while attempting to activate 'DabeaV2.Web.Controllers.TraegerController'.",
+  "Data": null,
+  "InnerException": null,
+  "HelpURL": null,
+  "StackTraceString": "   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projekte\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "RemoteStackTraceString": null,
+  "RemoteStackIndex": 0,
+  "ExceptionMethod": null,
+  "HResult": -2146233079,
+  "Source": "Microsoft.Extensions.DependencyInjection.Abstractions",
+  "WatsonBuckets": null
+}
+
+2019-07-23 15:35:56.524 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: ControllerException: Serverfehler: {
+  "StackTrace": "   at DabeaV2.Web.Controllers.TraegerController.Get_Name(Int64 id) in D:\\Projekte\\DabeaV2\\DabeaV2.Web\\Controllers\\TraegerController.cs:line 31
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projekte\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "Message": "ControllerException: Serverfehler",
+  "Data": {},
+  "InnerException": {
+    "StackTrace": "   at DabeaV2.Services.TraegerService.Get_Name(Int64 id) in D:\\Projekte\\DabeaV2\\DabeaV2.Services\\TestService.cs:line 36
+   at DabeaV2.Web.Controllers.TraegerController.Get_Name(Int64 id) in D:\\Projekte\\DabeaV2\\DabeaV2.Web\\Controllers\\TraegerController.cs:line 27",
+    "Message": "Träger mit ID '0' nicht gefunden!",
+    "Data": {},
+    "InnerException": null,
+    "HelpLink": null,
+    "Source": "DabeaV2.Services",
+    "HResult": -2146233088
+  },
+  "HelpLink": null,
+  "Source": "DabeaV2.Web",
+  "HResult": -2146233088
+}
+
+2019-07-23 15:37:40.280 +02:00 [Error] DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware: The JSON value could not be converted to System.Int64. Path: $ | LineNumber: 0 | BytePositionInLine: 1.: {
+  "ClassName": "System.Text.Json.JsonException",
+  "Message": "The JSON value could not be converted to System.Int64. Path: $ | LineNumber: 0 | BytePositionInLine: 1.",
+  "Data": null,
+  "InnerException": null,
+  "HelpURL": null,
+  "StackTraceString": "   at System.Text.Json.ThrowHelper.ThowJsonException(String message, Utf8JsonReader& reader, String path)
+   at System.Text.Json.ThrowHelper.ThrowJsonException_DeserializeUnableToConvertValue(Type propertyType, Utf8JsonReader& reader, String path)
+   at System.Text.Json.Serialization.JsonPropertyInfoNotNullable`3.Read(JsonTokenType tokenType, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.JsonSerializer.HandleValue(JsonTokenType tokenType, JsonSerializerOptions options, Utf8JsonReader& reader, ReadStack& state)
+   at System.Text.Json.Serialization.JsonSerializer.ReadCore(JsonSerializerOptions options, Utf8JsonReader& reader, ReadStack& readStack)
+   at System.Text.Json.Serialization.JsonSerializer.ReadCore(JsonReaderState& readerState, Boolean isFinalBlock, Span`1 buffer, JsonSerializerOptions options, ReadStack& readStack)
+   at System.Text.Json.Serialization.JsonSerializer.ReadAsync[TValue](Stream utf8Json, Type returnType, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter.ReadRequestBodyAsync(InputFormatterContext context, Encoding encoding)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinder.BindModelAsync(ModelBindingContext bindingContext)
+   at Microsoft.AspNetCore.Mvc.ModelBinding.ParameterBinder.BindModelAsync(ActionContext actionContext, IModelBinder modelBinder, IValueProvider valueProvider, ParameterDescriptor parameter, ModelMetadata metadata, Object value)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerBinderDelegateProvider.<>c__DisplayClass0_0.<<CreateBinderDelegate>g__Bind|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at DabeaV2.Web.Middleware.ExceptionHandling.ExceptionMiddleware.InvokeAsync(HttpContext httpContext) in D:\\Projekte\\DabeaV2\\DabeaV2.Web\\Middleware\\ExceptionHandling\\ExceptionMiddleware.cs:line 28",
+  "RemoteStackTraceString": null,
+  "RemoteStackIndex": 0,
+  "ExceptionMethod": null,
+  "HResult": -2146233088,
+  "Source": "System.Text.Json",
+  "WatsonBuckets": null,
+  "LineNumber": 0,
+  "BytePositionInLine": 1,
+  "Path": "$"
+}
+

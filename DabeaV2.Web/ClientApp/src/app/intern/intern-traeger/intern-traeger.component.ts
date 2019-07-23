@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+interface ITraegerNameViewModel {
+  name: string;
+}
 
 @Component({
   selector: 'cz-intern-traeger',
@@ -7,9 +12,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InternTraegerComponent implements OnInit {
 
-  constructor() { }
+  data: ITraegerNameViewModel = {
+    name:""
+  } as ITraegerNameViewModel;
+
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   ngOnInit() {
+    this.http.post<ITraegerNameViewModel>(this.baseUrl + 'api/Traeger/Get_Name', { id: 1 }).subscribe(response => {
+      this.data = response;
+    })
   }
 
 }
